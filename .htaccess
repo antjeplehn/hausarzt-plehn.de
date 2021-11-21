@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{SERVER_PORT} !=443
+RewriteRule ^(.*)$ https://www.hausarzt-plehn.de/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} !^www\.hausarzt-plehn\.de [NC]
+RewriteRule ^(.*)$ https://www.hausarzt-plehn.de/$1 [R=301,L]
