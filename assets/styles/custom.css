@@ -146,9 +146,9 @@ strong {
 }
 
 em {
-    color: #2e67e2;
+    color: #17365d;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 500;
 }
 
 hr {
@@ -464,8 +464,8 @@ nav.navbar .navbar-collapse {
 .navbar-nav .nav-link {
     padding-top: 0;
     padding-bottom: 0;
-    font-size: 30px;
-    line-height: 50px;
+    font-size: 24px;
+    line-height: 36px;
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -500,6 +500,7 @@ nav.navbar .navbar-collapse {
 }
 
 .navbar-light .navbar-toggler span:nth-child(2) {
+    display: none;
     color: #ffffff;
 }
 
@@ -521,8 +522,17 @@ nav.navbar .navbar-collapse {
     display: none;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 576px) {
+    .navbar-nav .nav-link {
+        font-size: 30px;
+        line-height: 50px;
+    }
+
     .navbar-light .navbar-toggler.collapsed span:nth-child(1) {
+        display: inline;
+    }
+
+    .navbar-light .navbar-toggler span:nth-child(2) {
         display: inline;
     }
 }
@@ -663,9 +673,15 @@ nav.navbar .navbar-collapse {
 }
 
 .navbar .navbar-collapse .navbar-nav {
-    margin-top: 100px;
+    margin-top: 60px;
     margin-right: initial !important;
     margin-bottom: auto
+}
+
+@media (min-width: 576px) {
+    .navbar .navbar-collapse .navbar-nav {
+        margin-top: 100px;
+    }
 }
 
 .navbar .navbar-collapse .navbar-brand {
@@ -861,9 +877,17 @@ nav.navbar .navbar-collapse {
 
 }
 
-/* Kontakt */
 #kontakt .card {
     border: none;
+}
+
+#notice span {
+    color: #2e67e2;
+}
+
+/* Impressum */
+body.imprint p {
+    margin-bottom: 1.5rem;
 }
 
 /* Footer */
