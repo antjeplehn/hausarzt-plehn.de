@@ -312,10 +312,11 @@ hr {
     height: 15px;
     margin-top: -8px;
     top: 50%;
-    right: 20px;
+    right: 30px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='14.849' viewBox='0 0 20 14.849'%3E%3Cg id='Gruppe_1014' data-name='Gruppe 1014' transform='translate(-1130 -1145.075)'%3E%3Cline id='Linie_88' data-name='Linie 88' x2='19' transform='translate(1130.5 1152.5)' fill='none' stroke='%23fff' stroke-linecap='square' stroke-width='1'/%3E%3Cline id='Linie_89' data-name='Linie 89' x2='10' transform='translate(1142.43 1145.429) rotate(45)' fill='none' stroke='%23fff' stroke-width='1'/%3E%3Cline id='Linie_90' data-name='Linie 90' x2='10' transform='translate(1149.5 1152.5) rotate(135)' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E%0A");
     background-size: 20px 15px;
     background-position: center;
+    transition: 0.5s right ease;
     content: ' ';
 }
 
@@ -324,7 +325,7 @@ hr {
 }
 
 .btn:hover.btn-arrow:after {
-    right: 10px;
+    right: 15px;
 }
 
 .btn-primary {
@@ -425,6 +426,10 @@ hr {
     #header {
         background: #e1e6ed url(../images/ap_logo.svg) no-repeat -115px -75px;
         background-size: 500px 500px;
+    }
+
+    #header h3 {
+        font-size: 55px;
     }
 }
 
@@ -775,7 +780,22 @@ nav.navbar .navbar-collapse {
 }
 
 #leistungen .card ul {
-    list-style: url('../images/bulletpoint.svg');
+    list-style: none
+}
+
+#leistungen .card ul li {
+    position: relative;
+}
+
+#leistungen .card ul li:before {
+    position: absolute;
+    left: -15px;
+    top: 11px;
+    width: 5px;
+    height: 5px;
+    background-image: url('../images/bulletpoint.svg');
+    background-size: 5px 5px;
+    content: ' ';
 }
 
 @media only screen and (min-width: 405px) {
@@ -800,10 +820,23 @@ nav.navbar .navbar-collapse {
 }
 
 #leistungen .card a {
+    position: relative;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 2px;
     text-transform: uppercase;
+}
+
+#leistungen .card a span {
+    position: absolute;
+    display: inline;
+    top: -1px;
+    left: -15px;
+    transition: 0.5s left ease;
+}
+
+#leistungen .card a:hover span {
+    left: -30px;
 }
 
 #leistungen ul {
@@ -879,6 +912,24 @@ nav.navbar .navbar-collapse {
 
 #kontakt .card {
     border: none;
+}
+
+#map .btn.btn-arrow {
+    width: 160px;
+}
+
+@media only screen and (max-width: 991px) {
+    #map .container-fluid {
+        padding: 0;
+    }
+
+    #map .container-lg {
+        padding: 0;
+    }
+
+    #map .container-lg .row {
+        --bs-gutter-x: 0;
+    }
 }
 
 #notice span {
