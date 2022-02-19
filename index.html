@@ -826,7 +826,7 @@
                 const dateStr = date.getFullYear() + '-'
                               + ('0' + (date.getMonth() + 1)).slice(-2) + '-'
                               + ('0' + date.getDate()).slice(-2);
-                if (date < endDate && localStorage.getItem('ap_modal_seen') !== dateStr) {
+                if (date.getTime() < endDate.getTime() && localStorage.getItem('ap_modal_seen') !== dateStr) {
                     setTimeout(function() {
                         const modalElement = document.querySelector('#ap-modal');
                         const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
