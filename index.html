@@ -745,6 +745,55 @@
         </div>
     </footer>
 
+    <div id="ap-modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-0">
+                <div class="modal-body p-0">
+                    <div class="container-fluid g-0">
+                        <div class="row g-0">
+                            <div class="col-12 col-lg-6 g-0 bg-blue">
+                                <div class="mt-4 mb-4 me-2 text-end d-lg-none">
+                                    <div class="d-inline-flex text-white text-uppercase align-middle">
+                                        <span style="font-size: 80%;">Schließen</span>&nbsp;&nbsp;<button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                                <picture>
+                                    <source srcset="assets/images/ap_umzug.jpg" media="(min-width: 992px)">
+                                    <img src="assets/images/ap_umzug_mobile.png" class="w-100 mw-100" alt="Karte">
+                                </picture>
+                            </div>
+                            <div class="col-12 col-lg-6 g-0 px-4 py-2 bg-blue">
+                                <div class="text-end d-none d-lg-block">
+                                    <div class="d-inline-flex text-white text-uppercase align-middle">
+                                        <span style="font-size: 80%;">Schließen</span>&nbsp;&nbsp;<button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                </div>
+                                <p class="mt-4 mb-4 text-white">
+                                    Liebe Patient:innen,
+                                    wir freuen uns sehr, Sie ab dem  29. März 2022 in unserer neuen modernen und barrierefreien Praxis begrüßen zu dürfen.
+                                </p>
+                                <h2 class="mt-4 text-start text-white"><span></span>Neue Adresse</h2>
+                                <div class="card border-0 rounded-0 bg-blue">
+                                    <div class="row g-0">
+                                        <div class="col-3 col-md-2 d-flex justify-content-center align-items-center">
+                                            <a href="https://goo.gl/maps/Ruk5uyvuiu5S2GQJ6" target="_blank"><img src="assets/images/icon_adresse.svg" height="60" alt="Icon Adresse"></a>
+                                        </div>
+                                        <div class="col-9 col-md-10">
+                                            <div class="card-body text-start text-white">
+                                                Am Leipziger Turm 5<br>
+                                                im 2. OG (Aufzug vorhanden)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/scripts/custom.js"></script>
@@ -770,6 +819,21 @@
                     $(this).html('<span>–</span> weniger');
                 } else{
                     $(this).html('<span>+</span> mehr');
+                }
+            });
+
+            $(function() {
+                const date = new Date();
+                const dateStr = date.getFullYear() + '-'
+                              + ('0' + (date.getMonth() + 1)).slice(-2) + '-'
+                              + ('0' + date.getDate()).slice(-2);
+                if (localStorage.getItem('ap_modal_seen') !== dateStr) {
+                    setTimeout(function() {
+                        const modalElement = document.querySelector('#ap-modal');
+                        const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+                        modal.show();
+                        localStorage.setItem('ap_modal_seen', dateStr);
+                    }, 3000);
                 }
             });
         })
